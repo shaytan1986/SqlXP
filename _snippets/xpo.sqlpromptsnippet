@@ -28,7 +28,7 @@
           <Default />
         </Literal>
       </Declarations>
-      <Code Language="sql"><![CDATA[exec dbo.sp_SetMinorXP N'$two_part_name$', N'$name$', $value$, 'A', 0]]></Code>
+      <Code Language="sql"><![CDATA[exec dbo.sp_SetObjectXP N'$two_part_name$', N'$name$', $value$, 'A', 0]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

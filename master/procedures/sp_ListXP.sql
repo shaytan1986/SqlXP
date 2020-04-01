@@ -40,8 +40,6 @@ begin
 		ValueType = sql_variant_property(Value, 'basetype')
 	from sys.extended_properties
 
-
-
 end
 return
 go
