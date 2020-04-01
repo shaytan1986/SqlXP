@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>xpm</Title>
+      <Shortcut>xpm</Shortcut>
+      <Description>minor xp minimal</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>two_part_name</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+        <Literal>
+          <ID>minor_name</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+        <Literal>
+          <ID>value</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+      </Declarations>
+      <Code Language="sql"><![CDATA[exec dbo.sp_SetMinorXP N'$two_part_name$', N'$minor_name$', N'$name$', $value$, 'A', 0]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

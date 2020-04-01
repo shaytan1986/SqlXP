@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>lxp</Title>
+      <Shortcut>lxp</Shortcut>
+      <Description>list XP</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>two_part_name</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+      </Declarations>
+      <Code Language="sql"><![CDATA[exec dbo.sp_ListXP
+	@TwoPartName = '$two_part_name$',
+	@MinorName = null]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

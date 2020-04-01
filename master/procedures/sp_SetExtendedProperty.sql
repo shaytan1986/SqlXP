@@ -23,7 +23,8 @@ declare
 	@OldValue sql_variant,
 	@OldValueType nvarchar(128),
 	@ValueType nvarchar(128) = convert(nvarchar(128), sql_variant_property(@Value, 'basetype')),
-	@msg nvarchar(2000)
+	@msg nvarchar(2000),
+	@NoOp bit = 1
 
 begin try
 
@@ -48,8 +49,9 @@ begin try
 	DROPS
 	*****************************/
 	if @Action = 'D'
-		begin
-			if @OldValue is not null
+	begin
+		if @OldValue is not null
+			begin
 				exec sys.sp_dropextendedproperty
 					@Name = @Name,
 					@Level0Type = @L0Type,
@@ -58,9 +60,11 @@ begin try
 					@Level1Name = @L1Name,
 					@Level2Type = @L2Type,
 					@Level2Name = @L2Name
-			else if @Debug = 1
-				raiserror('No value for @Name: %s exists to Drop.', 10, 1, @Name)
-		end
+				select @NoOp = 0
+			end
+		else if @Debug = 1
+			raiserror('No value for @Name: %s exists to Drop.', 10, 1, @Name)
+	end
 
 	/*****************************
 	UPDATES
@@ -86,6 +90,7 @@ begin try
 					@Level1Name = @L1Name,
 					@Level2Type = @L2Type,
 					@Level2Name = @L2Name
+				select @NoOp = 0
 			end
 		else if @Debug = 1
 			raiserror('Value exists for @Name: %s but it matches the existing value; no action taken.', 10, 1, @Name)
@@ -97,15 +102,18 @@ begin try
 	if @Action = 'A'
 	begin
 		if @OldValue is null
-			exec sys.sp_addextendedproperty
-				@Name = @Name,
-				@Value = @Value,
-				@Level0Type = @L0Type,
-				@Level0Name = @L0Name,
-				@Level1Type = @L1Type,
-				@Level1Name = @L1Name,
-				@Level2Type = @L2Type,
-				@Level2Name = @L2Name
+			begin
+				exec sys.sp_addextendedproperty
+					@Name = @Name,
+					@Value = @Value,
+					@Level0Type = @L0Type,
+					@Level0Name = @L0Name,
+					@Level1Type = @L1Type,
+					@Level1Name = @L1Name,
+					@Level2Type = @L2Type,
+					@Level2Name = @L2Name
+				select @NoOp = 0
+			end
 		else if @Debug = 1
 			raiserror('Value alrady exists for @Name: %s; no action taken', 10, 1, @Name)
 	end
@@ -116,7 +124,8 @@ begin try
 			OldValue = @OldValue,
 			OldValueType = @OldValueType,
 			NewValue = @Value,
-			NewValueType = @ValueType
+			NewValueType = @ValueType,
+			NoOp = @NoOp
 		from sys.fn_listextendedproperty
 		(
 			@Name, 
@@ -156,7 +165,7 @@ exec dbo.sp_SetExtendedProperty
 
 exec dbo.sp_SetExtendedProperty
     @Name = N'name', -- nvarchar(128)
-    @Value = 'ValueChanged', -- sql_variant
+    @Value = 'Value', -- sql_variant
     @L0Type = 'SCHEMA', -- varchar(128)
     @L0Name = 'dbo', -- nvarchar(128)
     @L1Type = 'PROCEDURE', -- varchar(128)
@@ -177,3 +186,4 @@ exec dbo.sp_SetExtendedProperty
     @L2Name = null, -- nvarchar(128)
     @Action = 'D', -- char(1)
     @Debug = 1 -- bit
+
