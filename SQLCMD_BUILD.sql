@@ -9,9 +9,9 @@ This script executes the procedures using SQLCMD :r commands
 */
 :setvar dir "C:\users\tetro\source\repos\Shaytan1986\SqlXP\"
 print '$(dir)'
-:r "$(dir)master\procedures\sp_SetExtendedProperty.sql"
-:r "$(dir)master\procedures\sp_ResolveXPLevelType.sql"
-:r "$(dir)master\procedures\sp_SetObjectXP.sql"
-:r "$(dir)master\procedures\sp_SetMinorXP.sql"
-:r "$(dir)master\procedures\sp_ListXP.sql"
+:r $(dir)"master\procedures\sp_SetExtendedProperty.sql"
+:r $(dir)"master\procedures\sp_ResolveXPLevelType.sql"
+:r $(dir)"master\procedures\sp_SetObjectXP.sql"
+:r $(dir)"master\procedures\sp_SetMinorXP.sql"
+:r $(dir)"master\procedures\sp_ListXP.sql"
 
