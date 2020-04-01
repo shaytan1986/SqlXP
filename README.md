@@ -11,7 +11,7 @@ A wrapper over
 * <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-updateextendedproperty-transact-sql?view=sql-server-ver15">sys.sp_updateextendedproperty</a>
 * <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-dropextendedproperty-transact-sql?view=sql-server-ver15">sys.sp_dropextendedproperty</a>
 
-This can be used as a full replacement for the above three procedures. Later objects in this repository focus on **schema-related objects** (i.e. XPs with `Level0Type = N`SCHEMA``) to save some typing, but always remember you can fall back to this for *any* supported extended property types.
+This can be used as a full replacement for the above three procedures. Later objects in this repository focus on **schema-related objects** (i.e. XPs with `Level0Type = N'SCHEMA'`) to save some typing, but always remember you can fall back to this for *any* supported extended property types.
 ## @Action
 You can switch between behaviors using the `@Action char(1)` parameter which accepts values of 
 * (A)dd
