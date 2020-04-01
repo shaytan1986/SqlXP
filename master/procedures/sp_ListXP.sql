@@ -7,7 +7,8 @@ drop proc if exists dbo.sp_ListXP
 go
 create or alter proc dbo.sp_ListXP
 	@TwoPartName nvarchar(256),
-	@MinorName nvarchar(128) = null
+	@MinorName nvarchar(128) = null,
+	@Name nvarchar(128) = null
 as
 begin
 
@@ -39,6 +40,7 @@ begin
 		Value = Value,
 		ValueType = sql_variant_property(Value, 'basetype')
 	from sys.extended_properties
+	where @Name is null or @Name = name
 
 end
 return
