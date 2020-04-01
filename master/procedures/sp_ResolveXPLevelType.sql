@@ -58,9 +58,4 @@ end
 return
 go
 exec sys.sp_ms_marksystemobject N'dbo.sp_ResolveXPLevelType'
-
 go
-
-exec dbo.sp_resolveXPLevelType 'dbo.testtype', 1
-exec dbo.sp_resolveXPLevelType 'sp_resolveXPLevelType', 1
-

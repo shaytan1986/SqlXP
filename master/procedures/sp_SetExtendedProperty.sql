@@ -151,39 +151,3 @@ go
 exec sys.sp_ms_marksystemobject N'dbo.sp_SetExtendedProperty'
 go
 
-exec dbo.sp_SetExtendedProperty
-    @Name = N'name', -- nvarchar(128)
-    @Value = 'Value', -- sql_variant
-    @L0Type = 'SCHEMA', -- varchar(128)
-    @L0Name = 'dbo', -- nvarchar(128)
-    @L1Type = 'PROCEDURE', -- varchar(128)
-    @L1Name = 'sp_SetExtendedProperty', -- nvarchar(128)
-    @L2Type = null, -- varchar(128)
-    @L2Name = null, -- nvarchar(128)
-    @Action = 'A', -- char(1)
-    @Debug = 1 -- bit
-
-exec dbo.sp_SetExtendedProperty
-    @Name = N'name', -- nvarchar(128)
-    @Value = 'Value', -- sql_variant
-    @L0Type = 'SCHEMA', -- varchar(128)
-    @L0Name = 'dbo', -- nvarchar(128)
-    @L1Type = 'PROCEDURE', -- varchar(128)
-    @L1Name = 'sp_SetExtendedProperty', -- nvarchar(128)
-    @L2Type = null, -- varchar(128)
-    @L2Name = null, -- nvarchar(128)
-    @Action = 'U', -- char(1)
-    @Debug = 1 -- bit
-
-exec dbo.sp_SetExtendedProperty
-    @Name = N'name', -- nvarchar(128)
-    @Value = null, -- sql_variant
-    @L0Type = 'SCHEMA', -- varchar(128)
-    @L0Name = 'dbo', -- nvarchar(128)
-    @L1Type = 'PROCEDURE', -- varchar(128)
-    @L1Name = 'sp_SetExtendedProperty', -- nvarchar(128)
-    @L2Type = null, -- varchar(128)
-    @L2Name = null, -- nvarchar(128)
-    @Action = 'D', -- char(1)
-    @Debug = 1 -- bit
-

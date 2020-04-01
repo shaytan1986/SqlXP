@@ -70,19 +70,3 @@ return
 go
 exec sys.sp_ms_marksystemobject N'dbo.sp_SetMinorXP'
 go
-
-drop type if exists dbo.testtype
-go
-create type dbo.testtype as table
-(
-	RID int
-)
-
-go
-
-exec dbo.sp_SetMinorXP
-	@TwoPartName = N'dbo.testtype',
-	@MinorName = N'RID',
-    @Name = N'name', -- nvarchar(128)
-    @Value = 'Value', -- sql_variant
-	@Debug = 1

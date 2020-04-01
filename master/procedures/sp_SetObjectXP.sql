@@ -46,10 +46,3 @@ return
 go
 exec sys.sp_ms_marksystemobject N'dbo.sp_SetObjectXP'
 go
-
-exec dbo.sp_SetObjectXP
-	@TwoPartName = 'dbo.sp_SetExtendedProperty',
-    @Name = N'name', -- nvarchar(128)
-    @Value = 'Value', -- sql_variant
-	@Debug =1
-    

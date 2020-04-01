@@ -45,4 +45,3 @@ return
 go
 exec sys.sp_ms_marksystemobject N'dbo.sp_ListXP'
 go
-exec dbo.sp_ListXP 'dbo.sp_SetExtendedProperty'
