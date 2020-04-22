@@ -50,6 +50,7 @@ begin
 			L1Name = @L1Name,
 			L2Type = @L2Type,
 			L2Name = @L2Name,
+            Action = @Action,
 			ObjectId = @ObjectId
 
 
@@ -62,6 +63,7 @@ begin
 		@L1Name = @L1Name,
 		@L2Type = @L2Type,
 		@L2Name = @L2Name,
+        @Action = @Action,
 		@Debug = @Debug
 
 
