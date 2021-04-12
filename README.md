@@ -59,6 +59,9 @@ Extended version of `sp_SetObjectXP` which allows for the annotation of *minor e
 ## sp_ListXP
 A simplified interface for viewing extended property information which includes friendly names in addition to the normal identifiers (like `major_id` and `minor_id`) which things like `sys.extended_properties` or `sys.fn_listextendedproperties()` output.
 
+## sp_GetObjectXP
+A simplified interface for getting an extended property from a given object id (with `@@procid` specifically in mind).
+
 # Snippets
 I used Redgate SqlPrompt quite a bit, so I included a couple of snippets you can import which make the use of these procs a little easier. There's one for `sp_ListXP` and then two each for `sp_SetObjectXp` and `sp_SetMinorXP`. The two variants are just one which is neatly formatted and qualifies all the parameters (i.e. `xpof`, `xpmf`; "f" for "full", "o" for "Object", "m" for "Minor") and one which is a quick-n-dirty inline version which takes up less space in case you're doing a bunch of them (i.e. `xpo`, `xpm`)
 
