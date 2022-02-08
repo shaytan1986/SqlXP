@@ -15,3 +15,4 @@ print '$(dir)'
 :r $(dir)"master\procedures\sp_SetMinorXP.sql"
 :r $(dir)"master\procedures\sp_ListXP.sql"
 
+

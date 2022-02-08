@@ -1,0 +1,3 @@
+This folder contains sql scripts which are designed to live on a specific database. Think, mainly, functions and views which can't be set up using the same `sp_MS_MarkSystemObject` logic. These can be deployed along with any database you wish to leverage extended properties to make their interaction less painful.
+
+For example, `dbo.vXPs` is a view which makes interacting with object extended properties easier by joining to `sys.columns` and `sys.objects`
